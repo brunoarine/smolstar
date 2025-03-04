@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<ul>
+  {{ range (sort .Pages "Title") }} {{ $count := .Pages.Len }}
+  <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a> ({{ $count }})</li>
+  {{ end }}
+</ul>
+{{ end }}

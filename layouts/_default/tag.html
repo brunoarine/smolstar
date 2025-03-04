@@ -1,0 +1,13 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<ul>
+  {{ range .Pages }}
+  <li>
+    <time datetime="{{ .Date }}">{{ .Date | time.Format "2006-02-01" }}</time>
+    &ensp;
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

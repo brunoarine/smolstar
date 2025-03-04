@@ -1,0 +1,325 @@
+:root {
+  --page-margin-sides: 12px;
+  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --standard-border-radius: 5px;
+  --light-opacity: 0.7;
+
+  /* Light theme colors */
+  --bg-color: #fff;
+  --border-color: #898ea4;
+  --header-color: #eee;
+  --link-color: #1e63b8;
+  --nav-color: #d8d8d8;
+  --nav-link-color: #000;
+  --text-color: #414141;
+  --accent-bg: #f5f5f5;
+  --border: #898ea4;
+  --text-light: #707070;
+  --code: #b8681e;
+  --code-bg: #f0f0f0;
+  --preformatted: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme colors */
+    --accent-bg: #2b2b2b;
+    --bg-color: #191b22;
+    --border: #898ea4;
+    --header-color: #282835;
+    --link-color: #559fe3;
+    --nav-color: #111;
+    --nav-link-color: #eee;
+    --text-color: #dedee9;
+    --marked: #d449d4;
+    --code: #e39955;
+    --code-bg: #444;
+    --preformatted: #ccc;
+    --text-light: #8e8f98;
+  }
+}
+
+/* Format tables */
+table {
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure > table {
+  width: max-content;
+  margin: 0;
+}
+
+td,
+th {
+  border: 1px solid var(--border);
+  text-align: start;
+  padding: 0.5rem;
+}
+
+th {
+  background-color: var(--accent-bg);
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  /* Set every other cell slightly darker. Improves readability. */
+  background-color: var(--accent-bg);
+}
+
+table caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+html {
+  font-size: 100%;
+  font-family: var(--sans-font);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+time {
+  color: var(--text-light);
+}
+
+/* Use mono font for code elements */
+code,
+pre,
+pre span,
+kbd,
+samp {
+  font-family: var(--mono-font);
+  color: var(--code);
+  font-size: 0.88rem;
+  background-color: var(--code-bg);
+  border-radius: var(--standard-border-radius);
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+kbd {
+  color: var(--preformatted);
+  border: 1px solid var(--preformatted);
+  border-bottom: 3px solid var(--preformatted);
+  border-radius: 5px;
+  padding: 0.1rem 0.4rem;
+}
+
+pre {
+  padding: 1rem 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  color: var(--preformatted);
+  background-color: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--standard-border-radius);
+  margin-bottom: 1rem;
+}
+
+/* Fix embedded code within pre */
+pre code,
+pre span {
+  color: var(--preformatted);
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  margin-inline-start: 2rem;
+  margin-inline-end: 0;
+  margin-block: 2rem;
+  padding: 0.4rem 0.8rem;
+  border-inline-start: 0.35rem solid var(--link-color);
+  color: var(--text-light);
+  font-style: italic;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--standard-border-radius);
+}
+
+figure {
+  margin: 0;
+  display: block;
+  overflow-x: auto;
+}
+
+figure > img,
+figure > picture > img {
+  display: block;
+  margin-inline: auto;
+}
+
+figcaption,
+figcaption p {
+  text-align: center;
+  color: var(--text-light);
+  margin-block: 1rem;
+}
+
+/* Make the body a nice central block */
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 1fr min(45rem, 100%) 1fr;
+  margin: 0;
+}
+
+body > * {
+  grid-column: 2;
+}
+
+body > header {
+  background-color: var(--header-color);
+}
+
+body > header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  padding-left: var(--page-margin-sides);
+  padding-right: var(--page-margin-sides);
+}
+
+body > header > h1 > a {
+  text-decoration: none;
+  color: var(--nav-link-color);
+}
+
+nav {
+  background-color: var(--nav-color);
+}
+
+nav > ul {
+  list-style-type: none;
+  padding: 0;
+  padding-top: 4px;
+  margin: 0;
+}
+
+nav > ul li {
+  display: inline-block;
+  padding-left: var(--page-margin-sides);
+  padding-right: var(--page-margin-sides);
+}
+
+nav > ul li a,
+nav > ul li a:visited {
+  color: var(--nav-link-color);
+  text-decoration: none;
+}
+
+main {
+  padding-left: var(--page-margin-sides);
+  padding-right: var(--page-margin-sides);
+}
+
+main > ul {
+  /* ul blocks inside main (but outside article) should be considered a list of posts */
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 2;
+}
+
+main > ul > li > a,
+main > ul > li > a:visited {
+  color: var(--nav-link-color);
+  text-decoration: none;
+}
+
+article a,
+article a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+article > header > h1 {
+  margin-bottom: 0;
+}
+
+article > header > .metadata {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -12px;
+}
+
+article > header > .metadata > time {
+  margin-top: 0;
+}
+
+article > header > .metadata > ul > li {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: 0.15em;
+  border-radius: var(--standard-border-radius);
+  color: var(--text-color);
+  background-color: var(--header-color);
+}
+
+article > header > .metadata > ul > li > a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem 1rem 1.5rem 1rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+article hr {
+  margin: 1.5em 0;
+  text-align: center;
+  border: none;
+}
+
+article hr:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ababae;
+  margin: 0 0.4em;
+}
+
+article hr:after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ababae;
+  margin: 0 0.4em;
+}
