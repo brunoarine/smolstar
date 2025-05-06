@@ -4,6 +4,7 @@
 <meta name="description" content="Bruno Arine's Blog" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+{{ partial "relme.htm" . }}
 <title>
   {{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title
   site.Title }}{{ end }}
