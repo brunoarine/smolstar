@@ -259,15 +259,16 @@ article a:visited {
   text-decoration: none;
 }
 
-article > header > h1 {
+article > header > a > h1 {
   margin-bottom: 0;
+  color: var(--text-color);
 }
 
 article > header > .metadata {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: -12px;
+  margin-top: -22px;
 }
 
 article > header > .metadata > time {

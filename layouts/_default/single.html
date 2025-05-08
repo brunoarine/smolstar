@@ -18,6 +18,14 @@
             </time>
           {{ end }}
         {{ end }}
+      &nbsp; by &nbsp;
+      <span>
+        {{ if .Params.author }}
+          {{ .Params.author }}
+          {{ else }}
+          {{ .Site.Params.author.name }}
+        {{ end }}
+      </span>
       <ul>
         {{ range .Params.tags }}
           <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a> </li>
