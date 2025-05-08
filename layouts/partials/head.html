@@ -5,6 +5,10 @@
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 {{ partial "relme.htm" . }}
+{{ with .Site.Params.indieweb }}
+  <link rel="authorization_endpoint" href="{{ .authorizationEndpoint | default "https://indieauth.com/auth" }}" />
+  <link rel="token_endpoint" href="{{ .tokenEndpoint | default "https://tokens.indieauth.com/token" }}" />
+{{ end }}
 <title>
   {{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title
   site.Title }}{{ end }}
