@@ -1,18 +1,18 @@
 {{ define "main" }}
-<article>
+<article class="h-entry">
   <header>
-    <h1>{{ .Title }}</h1>
+    <a class="u-url" href="{{ .Permalink }}"><h1 class="p-name">{{ .Title }}</h1></a>
 
     <div class="metadata">
         {{ if and (isset .Params "date") }}
           {{ $publishdate := .PublishDate.Format "January 02, 2006" }}
           {{ if (not (in .Params.categories "pages")) }}
-            <time datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
+            <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
               {{ $publishdate }}
               {{ with .Params.lastmod }}
                     {{ $lastmod := . | dateFormat "January 02, 2006"}}
                   {{ if ne $publishdate $lastmod }}
-                  &nbsp;(updated in {{ $lastmod }})
+              &nbsp;(updated in <span class="dt-updated">{{ $lastmod }}</span>)
                   {{ end }}
               {{ end }}
             </time>
@@ -26,8 +26,7 @@
 
     </div>
   </header>
-  <section>{{ .Content }}</section>
-  
+  <section class="e-content">{{ .Content }}</section>
   {{ $related := .Site.RegularPages.Related . | first 5 }}
   {{ if $related }}
   <section>
