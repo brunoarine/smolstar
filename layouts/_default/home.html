@@ -1,6 +1,13 @@
 {{ define "main" }} {{ .Content }}
+<article>
+{{ with .Site.GetPage "about" }}
+  {{ .Content }}
+{{ end }}
+</article>
+
+<h2>Latest blog entries</h2>
 <ul>
-  {{ range .Site.RegularPages }}
+  {{ range .Site.RegularPages | first 5 }}
   <li>
     <time datetime='{{ .Date | time.Format "2006-01-02 15:04:05-0700" }}'
       >{{ .Date | time.Format "2006-02-01" }}</time

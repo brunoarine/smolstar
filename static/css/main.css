@@ -268,7 +268,7 @@ article > header > .metadata {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: -22px;
+  margin-top: -12px;
 }
 
 article > header > .metadata > time {

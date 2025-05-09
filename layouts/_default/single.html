@@ -21,9 +21,15 @@
       &nbsp; by &nbsp;
       <span>
         {{ if .Params.author }}
-          {{ .Params.author }}
+          {{ if reflect.IsSlice .Params.author }}
+            {{ range .Params.author }}
+              {{ . | safeHTML }}
+            {{ end }}
           {{ else }}
-          {{ .Site.Params.author.name }}
+            {{ .Params.author }}
+          {{ end }}
+          {{ else }}
+            {{ .Site.Params.author.name }}
         {{ end }}
       </span>
       <ul>
