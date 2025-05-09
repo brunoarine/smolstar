@@ -9,17 +9,16 @@
           {{ if (not (in .Params.categories "pages")) }}
             <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
               {{ $publishdate }}
+            </time>
               {{ with .Params.lastmod }}
                     {{ $lastmod := . | dateFormat "January 02, 2006"}}
                   {{ if ne $publishdate $lastmod }}
-              &nbsp;(updated in <span class="dt-updated">{{ $lastmod }}</span>)
+                    <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}>&nbsp;(updated in {{ $lastmod }})</time>
                   {{ end }}
               {{ end }}
-            </time>
           {{ end }}
         {{ end }}
-      &nbsp; by &nbsp;
-      <span class="p-author h-card">
+      <a rel="author" class="p-author h-card" href='{{ .Site.Params.author.website }}' hidden>
         {{ if .Params.author }}
           {{ if reflect.IsSlice .Params.author }}
             {{ range .Params.author }}
@@ -31,11 +30,10 @@
           {{ else }}
             {{ .Site.Params.author.name }}
         {{ end }}
-      </span>
-      <data class="u-photo h-card" value='https://{{ absURL "" }}{{ .Site.Params.author.avatar }}'></data>
+      </a>
       <ul>
         {{ range .Params.tags }}
-          <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a> </li>
+          <li>#<a class="p-category" rel="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
         {{ end }}
       </ul>
 
