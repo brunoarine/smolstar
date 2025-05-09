@@ -32,6 +32,7 @@
             {{ .Site.Params.author.name }}
         {{ end }}
       </span>
+      <data class="u-photo" value='https://{{ absURL "" }}/{{ .Site.Params.author.avatar }}'></data>
       <ul>
         {{ range .Params.tags }}
           <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a> </li>
