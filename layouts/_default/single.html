@@ -19,7 +19,7 @@
           {{ end }}
         {{ end }}
       &nbsp; by &nbsp;
-      <span>
+      <span class="p-author h-card">
         {{ if .Params.author }}
           {{ if reflect.IsSlice .Params.author }}
             {{ range .Params.author }}
