@@ -286,6 +286,7 @@ article > header > .metadata > ul > li {
   border-radius: var(--standard-border-radius);
   color: var(--text-color);
   background-color: var(--header-color);
+  margin-right: 1px;
 }
 
 article > header > .metadata > ul > li > a {

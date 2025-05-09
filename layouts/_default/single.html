@@ -33,7 +33,7 @@
       </a>
       <ul>
         {{ range .Params.tags }}
-          <li>#<a class="p-category" rel="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
+          <li>#<a class="p-category" rel="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
       </ul>
 
