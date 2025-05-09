@@ -292,6 +292,10 @@ article > header > .metadata > ul > li > a {
   text-decoration: none;
 }
 
+article > .avatar {
+float: right;
+}
+
 footer {
   margin-top: 4rem;
   padding: 2rem 1rem 1.5rem 1rem;
