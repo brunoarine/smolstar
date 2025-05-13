@@ -265,15 +265,25 @@ article > header > a > h1 {
 }
 
 article > header > .metadata {
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   align-items: center;
-  margin-top: -12px;
+  /* margin-top: -12px; */
   font-size: 0.875em;
+  color: var(--text-light);
+}
+
+article > header > .metadata a {
+  color: var(--text-color);
 }
 
 article > header > .metadata > time {
   margin-top: 0;
+}
+
+article > header > .metadata > ul {
+margin: 0.5rem 0 1.2rem 0;
+padding: 0px;
 }
 
 article > header > .metadata > ul > li {
