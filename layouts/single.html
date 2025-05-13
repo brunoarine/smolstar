@@ -4,21 +4,22 @@
     <a class="u-url" href="{{ .Permalink }}"><h1 class="p-name">{{ .Title }}</h1></a>
 
     <div class="metadata">
-        {{ if and (isset .Params "date") }}
-          {{ $publishdate := .PublishDate.Format "01/02/2006" }}
-          {{ if (not (in .Params.categories "pages")) }}
-            <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
-              {{ $publishdate }}
-            </time>
-              {{ with .Params.lastmod }}
-                    {{ $lastmod := . | dateFormat "01/02/2006"}}
-                  {{ if ne $publishdate $lastmod }}
-                    <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}>&nbsp;({{ i18n "modified in" }} {{ $lastmod }})</time>
-                  {{ end }}
-              {{ end }}
-          {{ end }}
+      {{ if and (isset .Params "date") }}
+        {{ $publishdate := .PublishDate.Format "01/02/2006" }}
+        {{ if (not (in .Params.categories "pages")) }}
+          <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
+            {{ $publishdate }}
+          </time>
+            {{ with .Params.lastmod }}
+                  {{ $lastmod := . | dateFormat "01/02/2006"}}
+                {{ if ne $publishdate $lastmod }}
+                  <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}> ({{ i18n "modified in" }} {{ $lastmod }})</time>
+                {{ end }}
+            {{ end }}
         {{ end }}
-      <a rel="author" class="p-author h-card" href='{{ .Site.Params.author.website }}' hidden>
+      {{ end }}
+      {{ i18n "by" }}
+      <a rel="author" class="p-author h-card" href='{{ .Site.Params.author.website }}'>
         {{ if .Params.author }}
           {{ if reflect.IsSlice .Params.author }}
             {{ range .Params.author }}
