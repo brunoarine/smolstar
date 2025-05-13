@@ -13,7 +13,7 @@
               {{ with .Params.lastmod }}
                     {{ $lastmod := . | dateFormat "January 02, 2006"}}
                   {{ if ne $publishdate $lastmod }}
-                    <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}>&nbsp;(updated in {{ $lastmod }})</time>
+                    <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}>&nbsp;( {{ i18n "modified in" }} {{ $lastmod }})</time>
                   {{ end }}
               {{ end }}
           {{ end }}
