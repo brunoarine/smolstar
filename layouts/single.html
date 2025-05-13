@@ -5,15 +5,15 @@
 
     <div class="metadata">
         {{ if and (isset .Params "date") }}
-          {{ $publishdate := .PublishDate.Format "January 02, 2006" }}
+          {{ $publishdate := .PublishDate.Format "01/02/2006" }}
           {{ if (not (in .Params.categories "pages")) }}
             <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
               {{ $publishdate }}
             </time>
               {{ with .Params.lastmod }}
-                    {{ $lastmod := . | dateFormat "January 02, 2006"}}
+                    {{ $lastmod := . | dateFormat "01/02/2006"}}
                   {{ if ne $publishdate $lastmod }}
-                    <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}>&nbsp;( {{ i18n "modified in" }} {{ $lastmod }})</time>
+                    <time class="dt-updated" datetime={{ . | dateFormat "2006-01-02 15:04:05-0700" }}>&nbsp;({{ i18n "modified in" }} {{ $lastmod }})</time>
                   {{ end }}
               {{ end }}
           {{ end }}
