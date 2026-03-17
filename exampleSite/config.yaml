@@ -5,6 +5,22 @@ theme: smolstar
 
 defaultContentLanguage: en
 
+# Main menu
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Posts
+      url: /posts/
+      weight: 2
+    - name: Tags
+      url: /tags/
+      weight: 3
+    - name: About
+      url: /about/
+      weight: 4
+
 # !!! exampleSite only, you may need to delete the line: `themesDir: ../../`
 themesDir: ../../
 
