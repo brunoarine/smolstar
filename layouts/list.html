@@ -5,7 +5,7 @@
   {{ range .Pages }}
   <li>
     <time datetime='{{ .Date | time.Format "2006-01-02 15:04:05-0700" }}'
-      >{{ .Date | time.Format "2006-02-01" }}</time
+      >{{ .Date | time.Format "2006-01-02" }}</time
     >
     &ensp;
     <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
