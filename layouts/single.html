@@ -29,11 +29,17 @@
       </a>
       &nbsp;{{ i18n "in" }}&nbsp;
       {{ if and (isset .Params "date") }}
-        {{ $publishdate := .PublishDate.Format "02/01/2006" }}
+        {{ $publishdate := .PublishDate.Format "2006-01-02" }}
         {{ if (not (in .Params.categories "pages")) }}
           <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
             {{ $publishdate }}
           </time>
+        {{ end }}
+        {{ if .Lastmod }}
+          {{ $lastmod := .Lastmod.Format "2006-01-02" }}
+          {{ if ne $lastmod $publishdate }}
+            <span class="lastmod">(modified in {{ $lastmod }})</span>
+          {{ end }}
         {{ end }}
       {{ end }}
       <ul>&nbsp;
