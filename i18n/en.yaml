@@ -6,3 +6,12 @@
 
 - id: by
   translation: by
+
+- id: Note
+  translation: Note
+
+- id: Warning
+  translation: Warning
+
+- id: in
+  translation: in

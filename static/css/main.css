@@ -164,9 +164,10 @@ video {
 }
 
 figure {
-  margin: 0;
   display: block;
   overflow-x: auto;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 figure > img,
@@ -178,8 +179,8 @@ figure > picture > img {
 figcaption,
 figcaption p {
   text-align: center;
-  color: var(--text-light);
-  margin-block: 1rem;
+  font-size: small;
+  margin-block: 0.5rem;
 }
 
 /* Make the body a nice central block */
@@ -225,8 +226,8 @@ nav > ul {
 
 nav > ul li {
   display: inline-block;
-  padding-left: var(--page-margin-sides);
-  padding-right: var(--page-margin-sides);
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 nav > ul li a,
@@ -259,16 +260,15 @@ article a:visited {
   text-decoration: none;
 }
 
-article > header > a > h1 {
-  margin-bottom: 0;
+article > header > a > h1, article > header > a > h2 {
   color: var(--text-color);
+  margin-bottom: 0px;
 }
 
 article > header > .metadata {
-  /* display: flex; */
+  display: flex;
   flex-direction: row;
   align-items: center;
-  /* margin-top: -12px; */
   font-size: 0.875em;
   color: var(--text-light);
 }
@@ -282,8 +282,10 @@ article > header > .metadata > time {
 }
 
 article > header > .metadata > ul {
-margin: 0.5rem 0 1.2rem 0;
+/* margin: 0.5rem 0 1.2rem 0; */
 padding: 0px;
+margin-top: 0px;
+margin-bottom: 0px;
 }
 
 article > header > .metadata > ul > li {
@@ -316,29 +318,15 @@ footer {
 }
 
 article hr {
-  margin: 1.5em 0;
+  margin: 0;
+  border: 0;
   text-align: center;
-  border: none;
-}
 
-article hr:before {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #ababae;
-  margin: 0 0.4em;
-}
-
-article hr:after {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #ababae;
-  margin: 0 0.4em;
+  &:before {
+    content: "\2022 \2022 \2022";
+    font-size: 50px;
+    color: rgb(128,128,128);
+  }
 }
 
 dl {
@@ -378,3 +366,22 @@ dt + dt + dd {
   /* own height including padding */
   padding-left: calc(15% + 1em);
 }
+
+aside.warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 4px;
+  color: #444;
+}
+
+aside.info {
+  background-color: #e7f5ff;
+  border-left: 4px solid #1c7ed6;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 4px;
+  color: #0c3e6a;
+}
+
