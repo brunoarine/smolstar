@@ -259,7 +259,7 @@ main > ul {
 
 main > ul > li > a,
 main > ul > li > a:visited {
-  color: var(--nav-link-color);
+  color: #fff;
   text-decoration: none;
 }
 
