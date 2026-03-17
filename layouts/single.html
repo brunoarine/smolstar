@@ -1,11 +1,20 @@
 {{ define "main" }}
+{{ $author := .Site.Params.author }}
+{{ $authorName := "" }}
+{{ $authorWebsite := "" }}
+{{ if reflect.IsMap $author }}
+  {{ $authorName = $author.name }}
+  {{ $authorWebsite = $author.website }}
+{{ else }}
+  {{ $authorName = $author }}
+{{ end }}
 <article class="h-entry">
   <header>
     <a class="u-url" href="{{ .Permalink }}"><h1 class="p-name">{{ .Title }}</h1></a>
 
     <div class="metadata">
       {{ i18n "by" }}&nbsp;
-      <a rel="author" class="p-author h-card" href='{{ .Site.Params.author.website }}'>
+      <a rel="author" class="p-author h-card" href='{{ with $authorWebsite }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ end }}'>
         {{ if .Params.author }}
           {{ if reflect.IsSlice .Params.author }}
             {{ range .Params.author }}
@@ -15,7 +24,7 @@
             {{ .Params.author }}
           {{ end }}
           {{ else }}
-            {{ .Site.Params.author.name }}
+            {{ $authorName }}
         {{ end }}
       </a>
       &nbsp;{{ i18n "in" }}&nbsp;
