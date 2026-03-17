@@ -38,7 +38,7 @@
         {{ if .Lastmod }}
           {{ $lastmod := .Lastmod.Format "2006-01-02" }}
           {{ if ne $lastmod $publishdate }}
-            <span class="lastmod"> (modified in {{ $lastmod }})</span>
+            <span class="lastmod">&nbsp;(modified in {{ $lastmod }})</span>
           {{ end }}
         {{ end }}
       {{ end }}
