@@ -275,7 +275,7 @@ article > header > a > h1, article > header > a > h2 {
 }
 
 article > header > .metadata {
-  display: flex;
+  display: flexbox;
   flex-direction: row;
   align-items: center;
   font-size: 0.875em;
@@ -286,20 +286,21 @@ article > header > .metadata a {
   color: var(--text-color);
 }
 
-article > header > .metadata > time {
+article > header > .metadata time {
   margin-top: 0;
+  /* padding-right: 12px; */
 }
 
 article > header > .metadata > ul {
-/* margin: 0.5rem 0 1.2rem 0; */
-padding: 0px;
+display: inline-flex;
 margin-top: 0px;
 margin-bottom: 0px;
+padding-left: 0px;
 }
 
 article > header > .metadata > ul > li {
   display: inline-block;
-  padding: 0.25em 0.4em;
+  padding: 0.25em 0.4em 0 0;
   line-height: 1;
   text-align: center;
   white-space: nowrap;

@@ -13,36 +13,40 @@
     <a class="u-url" href="{{ .Permalink }}"><h1 class="p-name">{{ .Title }}</h1></a>
 
     <div class="metadata">
-      {{ i18n "by" }}&nbsp;
-      <a rel="author" class="p-author h-card" href='{{ with $authorWebsite }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ end }}'>
-        {{ if .Params.author }}
-          {{ if reflect.IsSlice .Params.author }}
-            {{ range .Params.author }}
-              {{ . | safeHTML }}
+      <span>
+        {{ i18n "by" }}
+        <a rel="author" class="p-author h-card" href='{{ with $authorWebsite }}{{ . }}{{ else }}{{ .Site.BaseURL }}{{ end }}'>
+          {{ if .Params.author }}
+            {{ if reflect.IsSlice .Params.author }}
+              {{ range .Params.author }}
+                {{ . | safeHTML }}
+              {{ end }}
+            {{ else }}
+              {{ .Params.author }}
             {{ end }}
-          {{ else }}
-            {{ .Params.author }}
+            {{ else }}
+              {{ $authorName }}
           {{ end }}
-          {{ else }}
-            {{ $authorName }}
-        {{ end }}
-      </a>
-      &nbsp;{{ i18n "in" }}&nbsp;
+        </a>
+      </span>
+      <span>
+      {{ i18n "in" }}
       {{ if and (isset .Params "date") }}
         {{ $publishdate := .PublishDate.Format "2006-01-02" }}
         {{ if (not (in .Params.categories "pages")) }}
           <time class="dt-published" datetime={{ .PublishDate.Format "2006-01-02 15:04:05-0700" }}>
             {{ $publishdate }}
+            {{ if .Lastmod }}
+              {{ $lastmod := .Lastmod.Format "2006-01-02" }}
+              {{ if ne $lastmod $publishdate }}
+                (modified in {{ $lastmod }})
+              {{ end }}
+        {{ end }}
           </time>
         {{ end }}
-        {{ if .Lastmod }}
-          {{ $lastmod := .Lastmod.Format "2006-01-02" }}
-          {{ if ne $lastmod $publishdate }}
-            <span class="lastmod">&nbsp;(modified in {{ $lastmod }})</span>
-          {{ end }}
-        {{ end }}
       {{ end }}
-      <ul>&nbsp;
+      </span>
+      <ul>
         {{ range .Params.tags }}
           <li>#<a class="p-category" rel="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
