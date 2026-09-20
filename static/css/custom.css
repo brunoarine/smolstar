@@ -1,1 +1,74 @@
-/* Placeholder for custom CSS */
+/* Footnote hover hint box */
+
+:root {
+  /* Same hue as the main background, with a little more blue */
+  --footnote-tip-bg: #eef2fb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --footnote-tip-bg: #1e2436;
+  }
+}
+
+.footnote-tooltip {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  max-width: min(28rem, calc(100vw - 2rem));
+  max-height: 40vh;
+  overflow-y: auto;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-color);
+  background-color: var(--footnote-tip-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--standard-border-radius);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  pointer-events: none; /* never block the pointer or steal the hover */
+}
+
+/* Footnote content inside the box */
+
+/* The cloned footnote is an <li>; suppress its bullet/number and spacing */
+.footnote-tooltip li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footnote-tooltip ol,
+.footnote-tooltip ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footnote-tooltip p {
+  margin: 0 0 0.5rem;
+}
+
+.footnote-tooltip p:last-child {
+  margin-bottom: 0;
+}
+
+.footnote-tooltip a,
+.footnote-tooltip a:visited {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.footnote-tooltip code {
+  color: var(--code);
+}
+
+.footnote-tooltip pre {
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--accent-bg);
+}
+
+.footnote-tooltip img {
+  max-width: 100%;
+}
